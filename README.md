@@ -1,36 +1,44 @@
 # Orbit
 
-**Pet Space Explorer** — Idle star map: send pets to distant planets for ores used in gear.
+**Pet Space Explorer** — A planned idle space game where pet expeditions gather ore for crafting.
 
 Part of [ComputerPets](https://github.com/RicheyWorks/computerpets). Map: [computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem).
 
-| | |
+[Status](#status) · [Design](docs/DESIGN.md) · [Contributor start](#contributor-start) · [Ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem)
+
+| Project | At a glance |
 | --- | --- |
-| Status | Design scaffold — loop and engine frozen |
+| Status | Design scaffold; not runnable yet |
 | License | MIT |
 | Tokens | Minigames never mint or burn. Tired overlay, not a dead lineage. |
-| First pet | [Meet Rui first](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md). This game is optional. |
+| First pet | [Flagship start guide](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md) |
 
-## The loop
+## Status
+
+This repository contains a [design](docs/DESIGN.md) and a [source placeholder](src/index.ts). It has no runnable application, build manifest, automated tests, or CI workflow.
+
+The experience, interfaces, integrations, and safeguards below are **implementation plans**, not supported features. The first implementation slice defines the initial contribution target.
+
+## Planned experience
 
 Delve is dungeons. Orbit is the sky. Species with flight traits (Soar) travel faster. Reef pets hate vacuum — they need a habitat bubble from Hearth.
 
-## Who plays
+## Intended audience
 
 Idle players. Flight pets go faster; reef pets need a bubble.
 
-## What it is not
+## Out of scope
 
 NASA fanfic that breaks Lore. Catch-up capped at 8h.
 
-## Genre and engine
+## Planned genre and engine
 
 - Genre: **Sci-fi idle**
 - Engine: **Vue / PixiJS**
 - Stack: Vue 3 · PixiJS star map · idle expeditions · ores → gear crafting
-- Default surface: `5173`
+- Proposed surface: `5173`
 
-## Architecture
+## Proposed integration
 
 ```mermaid
 flowchart LR
@@ -39,42 +47,42 @@ flowchart LR
   orbit -->|ore| quarry
 ```
 
-## How you play
+## Proposed play loop
 
 1. Unlock systems on a Pixi map.
 2. Assign pets + travel time.
 3. Ore → forge stats for Arena/Siege.
 4. Flavor text from Lore, not NASA fanfic that breaks canon.
 
-## First slice
+## First implementation slice
 
-Build this and stop.
+Initial implementation target:
 
 **One nearby system, Rui with a habitat bubble, ore into a craft bench.**
 
-You know it works when: Vacuum without bubble refused. Park-a-year catch-up will not print a fortune.
+Acceptance targets: Vacuum without bubble refused. Park-a-year catch-up will not print a fortune.
 
-## Environment
+## Planned environment
 
 Node 22
 
-## Failure doctrine
+## Planned safeguards
 
 Assign a non-flight pet to vacuum without bubble → refuse. Idle tick missed → catch-up cap 8h so nobody parks a year.
 
-Canon rules that never yield:
+Design constraints:
 
 - 210 living kinds. No illegal hybrids.
 - Overlay pets can get tired, sick, or hide. Tokens are not burned by a minigame.
 - Desktop walk stays the main quest. Closing Orbit must leave Rui walking.
 
-## Neighbors
+## Related projects
 
-- computerpets-delve
-- computerpets-soar
-- computerpets-quarry
-- computerpets-minter (crafted gear)
-- computerpets-hearth
+- [computerpets-delve](https://github.com/RicheyWorks/computerpets-delve)
+- [computerpets-soar](https://github.com/RicheyWorks/computerpets-soar)
+- [computerpets-quarry](https://github.com/RicheyWorks/computerpets-quarry)
+- [computerpets-minter](https://github.com/RicheyWorks/computerpets-minter) (crafted gear)
+- [computerpets-hearth](https://github.com/RicheyWorks/computerpets-hearth)
 
 ## Layout
 
@@ -86,13 +94,18 @@ computerpets-orbit/
   src/                implementation lands here
 ```
 
-## Run (Windows)
+## Contributor start
+
+With Git and PowerShell, clone the scaffold and read its design and source marker:
 
 ```powershell
-cd app; npm install; npm run dev
+git clone https://github.com/RicheyWorks/computerpets-orbit.git
+Set-Location computerpets-orbit
+Get-Content .\docs\DESIGN.md
+Get-Content .\src\index.ts
 ```
 
-Meet Rui first via the [flagship start-here](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md). This game is optional.
+Start with the [first implementation slice](#first-implementation-slice). Add the minimum project setup and tests needed for that slice, then document verified run commands. The proposed stack above is a design choice; there is no install or launch command for this checkout yet.
 
 ## Links
 
